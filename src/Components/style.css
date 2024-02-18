@@ -1,0 +1,24 @@
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .comment-form {
+      margin-left: 0; /* Adjust as needed */
+      align-items: flex-start;
+    }
+  }
+
+  textarea {
+    height: 160px;
+    /* Add any additional styles here */
+  }
+
+  .smc{
+    margin-left: 400px;
+  }
