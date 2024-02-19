@@ -38,7 +38,7 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
         },
       };
   
-      axios.post("http://localhost:8080/upload/image", formData, {
+      axios.post("https://tricks-codesblogbackend.up.railway.app/upload/image", formData, {
         ...config,
         responseType: 'json' // Add this option to disable logging
       })

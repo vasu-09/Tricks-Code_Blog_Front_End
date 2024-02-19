@@ -6,15 +6,15 @@ import { getToken } from "./AuthService";
 
   
 
-export const getarticlebyid = (id) => axios.get("http://localhost:8080/article/get/"+id);
-export const getCategories = () => axios.get("http://localhost:8080/category/art/all");
-export const getarticlebytitle = (title) => axios.get("http://localhost:8080/article/get/title"+title);
-export const getCommentsByArticleId = (id) => axios.get("http://localhost:8080/comments/all/"+id);
-export const getreplies = (id) => axios.get("http://localhost:8080/replies/get/"+id);
-export const getallarticles = () => axios.get("http://localhost:8080/article/get");
-export const getallusers = () => axios.get("http://localhost:8080/user/all");
-export const getuserbyid = (id) => axios.get("http://localhost:8080/user/get/"+id);
-export const getAbout = () => axios.get("http://localhost:8080/about");
+export const getarticlebyid = (id) => axios.get("https://tricks-codesblogbackend.up.railway.app/article/get/"+id);
+export const getCategories = () => axios.get("https://tricks-codesblogbackend.up.railway.app/category/art/all");
+export const getarticlebytitle = (title) => axios.get("https://tricks-codesblogbackend.up.railway.app/article/get/title"+title);
+export const getCommentsByArticleId = (id) => axios.get("https://tricks-codesblogbackend.up.railway.app/comments/all/"+id);
+export const getreplies = (id) => axios.get("https://tricks-codesblogbackend.up.railway.app/replies/get/"+id);
+export const getallarticles = () => axios.get("https://tricks-codesblogbackend.up.railway.app/article/get");
+export const getallusers = () => axios.get("https://tricks-codesblogbackend.up.railway.app/user/all");
+export const getuserbyid = (id) => axios.get("https://tricks-codesblogbackend.up.railway.app/user/get/"+id);
+export const getAbout = () => axios.get("https://tricks-codesblogbackend.up.railway.app/about");
 export const postCategories = (category) => {
     const token = getToken(); 
     
@@ -25,7 +25,7 @@ export const postCategories = (category) => {
           "Content-Type": "application/json",  // Set the content type
         },
       };
-    axios.post("http://localhost:8080/category/add", category, config);
+    axios.post("https://tricks-codesblogbackend.up.railway.app/category/add", category, config);
 }
 export const postcomment = (id, comment) => {
   const token = getToken(); 
@@ -37,7 +37,7 @@ export const postcomment = (id, comment) => {
           "Content-Type": "application/json",  // Set the content type
         },
       };
-  axios.post("http://localhost:8080/comments/add/"+id, comment, config);}
+  axios.post("https://tricks-codesblogbackend.up.railway.app/comments/add/"+id, comment, config);}
   
 export const postdata = (id, post) => {
   const token = getToken(); 
@@ -49,7 +49,7 @@ export const postdata = (id, post) => {
           'Content-Type': 'multipart/form-data',  // Set the content type
         },
       };
-      axios.post("http://localhost:8080/article/post/"+id, post, config);}
+      axios.post("https://tricks-codesblogbackend.up.railway.app/article/post/"+id, post, config);}
 
 export const updateComment = (id, comment) =>{
   const config = {
@@ -58,7 +58,7 @@ export const updateComment = (id, comment) =>{
       "Content-Type": "application/json",  // Set the content type
     },
   };
-axios.post("http://localhost:8080/comments/put/"+id, comment, config);
+axios.post("https://tricks-codesblogbackend.up.railway.app/comments/put/"+id, comment, config);
 }
 
 export const deleteComment = (id) =>{
@@ -70,7 +70,7 @@ export const deleteComment = (id) =>{
       "Content-Type": "application/json",  // Set the content type
     },
   };
-axios.delete("http://localhost:8080/comments/delete/"+id, config);
+axios.delete("https://tricks-codesblogbackend.up.railway.app/comments/delete/"+id, config);
 }
 
 export const updateAbout = (about) =>{
@@ -82,7 +82,7 @@ export const updateAbout = (about) =>{
       "Content-Type": "application/json",  // Set the content type
     },
   };
-  axios.put("http://localhost:8080/update/about", about, config);
+  axios.put("https://tricks-codesblogbackend.up.railway.app/update/about", about, config);
 }
 
 export const updateArticle = (id, post) =>{
@@ -95,7 +95,7 @@ export const updateArticle = (id, post) =>{
             'Content-Type': 'multipart/form-data',  // Set the content type
           },
         };
-        axios.put("http://localhost:8080/article/put/"+id, post, config);
+        axios.put("https://tricks-codesblogbackend.up.railway.app/article/put/"+id, post, config);
 }
 
 export const deletearticle = (id) =>{
@@ -107,7 +107,7 @@ export const deletearticle = (id) =>{
       "Content-Type": "application/json",  // Set the content type
     },
   };
-  axios.delete("http://localhost:8080/article/delete/"+id, config);
+  axios.delete("https://tricks-codesblogbackend.up.railway.app/article/delete/"+id, config);
 }
 
 export const replycomment = (id, comment) =>{
@@ -118,7 +118,7 @@ export const replycomment = (id, comment) =>{
       "Content-Type": "application/json",  
     },
   };
-  axios.post("http://localhost:8080/replies/add/"+id, comment, config);
+  axios.post("https://tricks-codesblogbackend.up.railway.app/replies/add/"+id, comment, config);
 }
 
 
@@ -131,5 +131,5 @@ export const deleteReply = (id) =>{
       "Content-Type": "application/json",  // Set the content type
     },
   };
-axios.delete("http://localhost:8080/replies/delete/"+id, config);
+axios.delete("https://tricks-codesblogbackend.up.railway.app/replies/delete/"+id, config);
 }
