@@ -24,7 +24,7 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
     onContentChange(null, content);
     
 };
-
+  
 
   const handleImageUpload = (blobInfo) => {
     return new Promise((resolve, reject) => {
@@ -57,11 +57,11 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
     });
   };
   
-      
+  const API_KEY = process.env.REACT_APP_TINY_MCE_API_KEY;
 
   return (
     <Editor
-      apiKey='uvwxgj5y4tjnwymogl2gbguh5w9s2up4gm212s9xjy14soy2'
+      apiKey = {API_KEY}      
       initialValue={initialValue}
       init={{
         height: 500,
