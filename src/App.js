@@ -12,6 +12,9 @@ import About from './Components/About';
 import EditAbout from './Components/EditAbout';
 import Footer from './Components/Footer';
 import AuthModal from './Components/AuthModal';
+import ErrorBoundary from './Components/ErrorBoundary';
+import Errorpage from './Components/Errorpage';
+import NotFound from './Components/NotFound';
 
 
 function App() {
@@ -62,6 +65,7 @@ function App() {
     <>
       <BrowserRouter>
       <Header categories={categories}/>
+      <ErrorBoundary fallback={Errorpage}>
     <Routes>
       <Route path='/' element= {<Home categories={categories} articles={articles} users={users} />}></Route>
       <Route path='/add-article' element = {
@@ -78,8 +82,11 @@ function App() {
       <Route path='/about' element = {<About />}></Route>
       <Route path='/update-about' element={<EditAbout/>}></Route>
       <Route path='login' element={<AuthModal/>}></Route>
+      <Route path='*' element={<NotFound/>}></Route>
     </Routes>
+    </ErrorBoundary>
     <Footer/>
+    
     </BrowserRouter>
     </>
   );

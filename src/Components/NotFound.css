@@ -1,0 +1,16 @@
+.not-found-container {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Set height to fill the viewport */
+  }
+  
+  .not-found-content {
+    text-align: center; /* Center text */
+  }
+  
+  .not-found {
+    width: 500px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
