@@ -2,9 +2,11 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-export const registerApicall = (register) => axios.post("https://tricks-codesblogbackend.up.railway.app/auth/register", register)
+const BASE_URL = process.env.REACT_APP_BASE_URL
 
-export const loginApicall = (usernameOrEmail, password) =>axios.post("https://tricks-codesblogbackend.up.railway.app/auth/login", {usernameOrEmail, password})
+export const registerApicall = (register) => axios.post(BASE_URL+"/auth/register", register)
+
+export const loginApicall = (usernameOrEmail, password) =>axios.post(BASE_URL+"/auth/login", {usernameOrEmail, password})
 
 export const storeToken = (token) => Cookies.set("token", token, { expires: 7 }); // Set an expiry date if needed
 
