@@ -2,33 +2,26 @@ import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 
-
 const axiosInstance = axios.create();
 
-// Add a response interceptor
 axiosInstance.interceptors.response.use(
   response => {
-    // Do not log the response here, just return it
     return response;
   },
   error => {
-    // Do not log the error here, just return it
     return Promise.reject(error);
   }
 );
 
-
-const RichTextEditor = ({ initialValue, onContentChange,  }) => {
+const RichTextEditor = ({ initialValue, onContentChange }) => {
   
   const handleEditorChange = (content, editor) => {
     onContentChange(null, content);
     
 };
   
-
   const handleImageUpload = (blobInfo) => {
     return new Promise((resolve, reject) => {
-      
       const formData = new FormData();
       formData.append('image', blobInfo.blob(), blobInfo.filename());
      
@@ -40,12 +33,12 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
   
       axios.post("https://tricks-codesblogbackend.up.railway.app/upload/image", formData, {
         ...config,
-        responseType: 'json' // Add this option to disable logging
+        responseType: 'json'
       })
       .then(response => {
         if (response && response.data) {
           const imageData = response.data;
-          const imageUrl = imageData.src; // Adjust this based on your API response structure
+          const imageUrl = imageData.src;
           resolve(imageUrl);
         } else {
           reject("Image upload failed");
@@ -61,7 +54,7 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
 
   return (
     <Editor
-      apiKey = {API_KEY}      
+      apiKey={API_KEY}      
       initialValue={initialValue}
       init={{
         height: 500,
@@ -94,19 +87,18 @@ const RichTextEditor = ({ initialValue, onContentChange,  }) => {
           "save"
         ],
         toolbar:
-          'undo redo | blocks | '+
+         'undo redo | blocks fontfamily fontsize | '+
           'bold italic forecolor image table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol | alignleft aligncenter ' +
-          'alignright alignjustify | save insertdatetime emoticons link codesample media searchreplace bullist numlist outdent indent visualblocks preview | ' +
-          'removeformat | help| code charmap fullscreen ',images_upload_handler: handleImageUpload,
+         'alignright alignjustify align lineheight | save insertdatetime emoticons link codesample media searchreplace bullist numlist outdent indent visualblocks preview | ' +
+        'removeformat | help| code charmap fullscreen ',images_upload_handler: handleImageUpload,
         content_style:
           "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           setup: (editor) => {
-                  editor.on('change', () => {
-                      handleEditorChange(editor.getContent(), editor); // Pass both content and editor object
-            });
-
-              
-      }}}
+            editor.on('change', () => {
+                handleEditorChange(editor.getContent(), editor); // Pass both content and editor object
+      });
+    }}}
+    
     />
   );
 };

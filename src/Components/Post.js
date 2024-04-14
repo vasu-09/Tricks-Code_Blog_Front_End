@@ -224,9 +224,9 @@ const Post = () => {
                     <div className='col'>
                       
                     <h1>{post.title}</h1>
-                    <span className='text-muted' style={{fontSize: "15px"}}>Created / Modified at: {formatDate(post.createdDate)}</span>
+                    <span className='text-muted' style={{fontSize: "10px"}}>Created / Modified at: {formatDate(post.createdDate)}</span>
                     </div>
-                    <div className='col text-right'>
+                    <div className='text-right'>
                     
                     {isadmin && <button className='btn text-white' onClick={() =>updateArticle(post.id)} style={{backgroundColor: "rgb(19, 18, 256)", marginLeft: "10px"}}>Update</button> }
                     {isadmin && <button className='btn text-white' onClick={() =>deleteArticle(post.id)} style={{backgroundColor: "rgb(249, 28, 25)", marginLeft: "10px"}}>Delete</button> }

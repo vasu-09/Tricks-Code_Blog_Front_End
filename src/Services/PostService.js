@@ -28,13 +28,10 @@ export const postCategories = (category) => {
     axios.post(BASE_URL+"/category/add", category, config);
 }
 export const postcomment = (id, comment) => {
-  const token = getToken(); 
   
-    const config = {
-        
+    const config = {   
         headers: {
-          Authorization: `${token}`,  // Include the token in the Authorization header
-          "Content-Type": "application/json",  // Set the content type
+           "Content-Type": "application/json",  // Set the content type
         },
       };
   axios.post(BASE_URL+"/comments/add/"+id, comment, config);}
